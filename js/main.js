@@ -159,7 +159,7 @@ async function loadReleases() {
 
   // Try GitHub API
   try {
-    const res = await fetch('https://api.github.com/repos/Sentinel-bit/snapspend/releases');
+    const res = await fetch('https://api.github.com/repos/Sentinel-bit/snapspend-landing/releases');
     if (!res.ok) {
       if (res.status === 403 && res.headers.get('X-RateLimit-Remaining') === '0') {
         throw new Error('rate_limited');
