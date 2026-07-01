@@ -1,0 +1,20 @@
+[
+  {
+    "version": "0.1.2",
+    "date": "2026-06-30",
+    "notes": "LAN Connect to PC — live spending dashboard on desktop. 32 currencies, enhanced AI accuracy improvements, performance optimizations.",
+    "download": "releases/SnapSpend-v0.1.2.apk"
+  },
+  {
+    "version": "0.1.1",
+    "date": "2026-06-22",
+    "notes": "AI Coach added. Multi-currency support (32 currencies). Tax helper with deductible detection. Performance improvements.",
+    "download": "releases/SnapSpend-v0.1.1.apk"
+  },
+  {
+    "version": "0.1.0",
+    "date": "2026-06-15",
+    "notes": "Initial beta release. AI receipt scanning, budgets, analytics, dark mode, smart folders, price history.",
+    "download": "releases/SnapSpend-v0.1.0.apk"
+  }
+]

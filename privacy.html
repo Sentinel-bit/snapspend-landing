@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — SnapSpend</title>
+  <meta name="description" content="SnapSpend Privacy Policy" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .legal-page{padding:120px 0 80px;max-width:780px;margin:0 auto}
+    .legal-page h1{font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+    .legal-page .date{color:var(--fg2);font-size:14px;margin-bottom:40px}
+    .legal-page h2{font-size:20px;font-weight:700;margin:32px 0 12px}
+    .legal-page p{color:var(--fg2);font-size:15px;line-height:1.75;margin-bottom:16px}
+    .legal-page ul{color:var(--fg2);font-size:15px;line-height:1.75;padding-left:24px;margin-bottom:16px}
+    .legal-page ul li{margin-bottom:6px}
+    .legal-page strong{color:var(--fg)}
+    .legal-back{display:inline-flex;align-items:center;gap:6px;color:var(--fg2);text-decoration:none;font-size:14px;margin-bottom:32px;transition:color var(--transition)}
+    .legal-back:hover{color:var(--fg)}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">SnapSpend</a>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#releases">Releases</a>
+        <a href="index.html#reviews">Reviews</a>
+      </div>
+      <a href="index.html#download" class="btn btn-primary nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <div class="container legal-page">
+    <a href="index.html" class="legal-back">&larr; Back to Home</a>
+    <h1>Privacy Policy</h1>
+    <p class="date">Last updated: June 1, 2026</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>When you use SnapSpend, we collect information you provide directly, including your email address, display name, and receipt data (merchant names, amounts, dates, categories, and line items). We also collect usage data such as scan counts, feature interactions, and crash reports to improve the app.</p>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use your information to power the app's core features: AI receipt scanning, budget tracking, analytics, tax reports, and the financial coach. We may use anonymized, aggregated data for product improvement. We do <strong>not</strong> sell your personal data to third parties.</p>
+
+    <h2>3. AI Processing</h2>
+    <p>Receipt images are sent to our AI provider (OpenAI via Supabase Edge Functions) solely for the purpose of extracting text and line items. Images are not retained by OpenAI after processing. You can delete any receipt at any time, which removes the associated image and extracted data from our systems.</p>
+
+    <h2>4. Data Storage & Security</h2>
+    <p>Your data is stored on Supabase (PostgreSQL) with row-level security ensuring you can only access your own data. We use industry-standard encryption in transit (TLS) and at rest. We retain your data for as long as your account is active. Upon account deletion, all associated data is permanently removed within 30 days.</p>
+
+    <h2>5. Third-Party Services</h2>
+    <p>SnapSpend integrates with the following third-party services:</p>
+    <ul>
+      <li><strong>Supabase</strong> — database, authentication, and edge functions</li>
+      <li><strong>OpenAI</strong> — AI receipt parsing via GPT-4o</li>
+      <li><strong>Sentry</strong> — crash and error reporting</li>
+      <li><strong>PostHog</strong> — product analytics (anonymized)</li>
+      <li><strong>RevenueCat</strong> — subscription management</li>
+      <li><strong>Frankfurter API</strong> — currency exchange rates (no personal data sent)</li>
+    </ul>
+    <p>Each service processes data under their own privacy policies and applicable data processing agreements.</p>
+
+    <h2>6. Your Rights</h2>
+    <p>You may request access to, correction of, or deletion of your personal data at any time by contacting us at <strong>privacy@snapspend.app</strong>. You may also export your data in CSV format from within the app.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Material changes will be notified via email or in-app notice. Continued use after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>8. Contact</h2>
+    <p>For questions about this policy, contact us at <strong>privacy@snapspend.app</strong>.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>SnapSpend</strong>
+        <p>AI-powered receipt scanning & expense tracking.</p>
+        <p class="footer-copy">&copy; 2026 SnapSpend. All rights reserved.</p>
+            <p class="footer-copy" style="opacity:0.5;margin-top:4px;font-size:11px;letter-spacing:1.5px">POWERED BY PERCEPTA</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#releases">Releases</a>
+        <a href="index.html#reviews">Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="eula.html">EULA</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/Sentinel-bit/snapspend" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:hello@snapspend.app">Email</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

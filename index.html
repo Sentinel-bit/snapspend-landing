@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapSpend — AI Receipt Scanner & Expense Tracker</title>
+  <meta name="description" content="Snap a photo, AI extracts every detail. Track spending, set budgets, unlock financial insights." />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">SnapSpend</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#releases">Releases</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <a href="#download" class="btn btn-primary nav-cta">Download</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-content" data-reveal>
+        <div class="badge-group">
+          <span class="badge badge-ai">AI-Powered</span>
+          <span class="badge badge-new" id="version-badge">v0.1.1</span>
+        </div>
+        <h1>Your receipts, <br/>organized by <span class="gradient-text">AI</span>.</h1>
+        <p class="hero-subtitle">Snap a photo. GPT-4o extracts every detail instantly. Track spending, set budgets, and get personalized financial insights — all in one beautifully simple app.</p>
+        <div class="hero-actions">
+          <div class="hero-buttons">
+            <a href="https://apps.apple.com/app/snapspend/id0000000000" target="_blank" rel="noopener" class="store-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              <span><strong>App Store</strong><small>Coming Soon</small></span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.snapspend.app" target="_blank" rel="noopener" class="store-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+              <span><strong>Google Play</strong><small>Coming Soon</small></span>
+            </a>
+          </div>
+          <div class="hero-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://snapspend.app&bgcolor=0a0a0a&color=f5f5f5" alt="Scan to download SnapSpend" width="120" height="120" />
+            <span>Scan to download</span>
+          </div>
+        </div>
+        <div class="hero-trust">
+          <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No credit card</span>
+          <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 50 free scans/mo</span>
+          <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Cancel anytime</span>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" id="phone-screen">
+
+            <!-- Screen 1: Receipts -->
+            <div class="mock-screen active" data-screen="0">
+              <div class="mock-status"><span class="mock-clock">9:41</span><div class="mock-icons">&#9649; &#9632;</div></div>
+              <div class="mock-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>Receipts</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+              </div>
+              <div class="mock-search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search receipts...</span></div>
+              <div class="mock-card mc-1"><div class="mc-icon mc-s"></div><div class="mc-body"><div class="mc-merchant">Starbucks</div><div class="mc-category">Dining</div></div><div class="mc-amount">$5.75</div></div>
+              <div class="mock-card mc-2"><div class="mc-icon mc-r"></div><div class="mc-body"><div class="mc-merchant">Shell Gas</div><div class="mc-category">Transport</div></div><div class="mc-amount">$48.20</div></div>
+              <div class="mock-card mc-3"><div class="mc-icon mc-c"></div><div class="mc-body"><div class="mc-merchant">Walmart</div><div class="mc-category">Groceries</div></div><div class="mc-amount">$124.99</div></div>
+              <div class="mock-card mc-4"><div class="mc-icon mc-p"></div><div class="mc-body"><div class="mc-merchant">CVS Pharmacy</div><div class="mc-category">Medical</div></div><div class="mc-amount">$12.49</div></div>
+            </div>
+
+            <!-- Screen 2: Analytics -->
+            <div class="mock-screen" data-screen="1">
+              <div class="mock-status"><span class="mock-clock">9:41</span><div class="mock-icons">&#9649; &#9632;</div></div>
+              <div class="mock-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span>Analytics</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
+              <div class="m-analytics">
+                <div class="m-ana-header"><span class="m-ana-label">Total Spent</span><span class="m-ana-total">$2,847.53</span></div>
+                <div class="m-ana-sub">This month &middot; 23 receipts</div>
+                <div class="m-ana-chart">
+                  <div class="m-bar"><div class="m-bar-fill" style="height:75%"></div><span>Jan</span></div>
+                  <div class="m-bar"><div class="m-bar-fill" style="height:55%"></div><span>Feb</span></div>
+                  <div class="m-bar"><div class="m-bar-fill" style="height:90%"></div><span>Mar</span></div>
+                  <div class="m-bar"><div class="m-bar-fill" style="height:65%"></div><span>Apr</span></div>
+                  <div class="m-bar"><div class="m-bar-fill" style="height:80%"></div><span>May</span></div>
+                </div>
+                <div class="m-ana-breakdown">
+                  <div class="m-break-item"><span class="m-break-dot" style="background:#10b981"></span>Food <small>$892</small></div>
+                  <div class="m-break-item"><span class="m-break-dot" style="background:#3b82f6"></span>Transport <small>$645</small></div>
+                  <div class="m-break-item"><span class="m-break-dot" style="background:#f59e0b"></span>Shopping <small>$521</small></div>
+                  <div class="m-break-item"><span class="m-break-dot" style="background:#a78bfa"></span>Other <small>$789</small></div>
+                </div>
+                <div class="m-ana-score">
+                  <div class="m-score-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#222" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="74, 100"/></svg><span class="m-score-text">74</span></div>
+                  <div><strong>Health Score</strong><small>Good</small></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 3: AI Coach -->
+            <div class="mock-screen" data-screen="2">
+              <div class="mock-status"><span class="mock-clock">9:41</span><div class="mock-icons">&#9649; &#9632;</div></div>
+              <div class="mock-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span>AI Coach</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3a6 6 0 006 6 6 6 0 00-6 6 6 6 0 00-6-6 6 6 0 006-6z"/></svg></div>
+              <div class="m-chat">
+                <div class="m-msg m-msg-ai">
+                  <div class="m-msg-avatar">AI</div>
+                  <div><div class="m-msg-bubble">Hi! I'm your financial coach. Ask me anything about your spending.</div></div>
+                </div>
+                <div class="m-msg m-msg-user">
+                  <div><div class="m-msg-bubble">Where can I save money this month?</div></div>
+                  <div class="m-msg-avatar u">U</div>
+                </div>
+                <div class="m-msg m-msg-ai">
+                  <div class="m-msg-avatar">AI</div>
+                  <div><div class="m-msg-bubble">You spent $892 on dining out — 32% more than last month. Cutting 2 meals out per week could save ~$180.</div></div>
+                </div>
+                <div class="m-chat-suggestions">
+                  <span>Compare to last month</span><span>Top spending categories</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 4: Budgets -->
+            <div class="mock-screen" data-screen="3">
+              <div class="mock-status"><span class="mock-clock">9:41</span><div class="mock-icons">&#9649; &#9632;</div></div>
+              <div class="mock-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span>Budgets</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+              <div class="m-budgets">
+                <div class="m-budget-card">
+                  <div class="m-budget-header"><span>Monthly Budget</span><strong>$2,000</strong></div>
+                  <div class="m-budget-bar"><div class="m-budget-fill" style="width:74%"></div></div>
+                  <div class="m-budget-footer"><span>Spent $1,486</span><span>Remaining $514</span></div>
+                </div>
+                <div class="m-budget-card small">
+                  <div class="m-budget-header"><span>Food</span><strong>$600</strong></div>
+                  <div class="m-budget-bar"><div class="m-budget-fill" style="width:62%;background:#10b981"></div></div>
+                  <div class="m-budget-footer"><span>$372 of $600</span></div>
+                </div>
+                <div class="m-budget-card small">
+                  <div class="m-budget-header"><span>Transport</span><strong>$300</strong></div>
+                  <div class="m-budget-bar"><div class="m-budget-fill" style="width:48%;background:#3b82f6"></div></div>
+                  <div class="m-budget-footer"><span>$145 of $300</span></div>
+                </div>
+                <div class="m-budget-card small">
+                  <div class="m-budget-header"><span>Shopping</span><strong>$400</strong></div>
+                  <div class="m-budget-bar"><div class="m-budget-fill" style="width:88%;background:#f59e0b"></div></div>
+                  <div class="m-budget-footer"><span>$352 of $400</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 5: Tax Helper -->
+            <div class="mock-screen" data-screen="4">
+              <div class="mock-status"><span class="mock-clock">9:41</span><div class="mock-icons">&#9649; &#9632;</div></div>
+              <div class="mock-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span>Tax Helper</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg></div>
+              <div class="m-tax">
+                <div class="m-tax-header">2025 Tax Year</div>
+                <div class="m-tax-card">
+                  <div class="m-tax-total">$3,240</div>
+                  <div class="m-tax-sub">Total Deductible Expenses</div>
+                </div>
+                <div class="m-tax-items">
+                  <div class="m-tax-item"><div class="m-tax-item-dot" style="background:#10b981"></div><span>Medical</span><strong>$1,240</strong></div>
+                  <div class="m-tax-item"><div class="m-tax-item-dot" style="background:#3b82f6"></div><span>Education</span><strong>$850</strong></div>
+                  <div class="m-tax-item"><div class="m-tax-item-dot" style="background:#f59e0b"></div><span>Charity</span><strong>$400</strong></div>
+                  <div class="m-tax-item"><div class="m-tax-item-dot" style="background:#a78bfa"></div><span>Business</span><strong>$750</strong></div>
+                </div>
+                <div class="m-tax-btn">Export Report</div>
+              </div>
+            </div>
+
+            <!-- Screen 6: Receipt Detail -->
+            <div class="mock-screen" data-screen="5">
+              <div class="mock-status"><span class="mock-clock">9:41</span><div class="mock-icons">&#9649; &#9632;</div></div>
+              <div class="mock-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span>Detail</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+              <div class="m-detail">
+                <div class="m-detail-store">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M3 7V5a2 2 0 012-2h2"/><path d="M17 3h2a2 2 0 012 2v2"/><path d="M21 17v2a2 2 0 01-2 2h-2"/><path d="M7 21H5a2 2 0 01-2-2v-2"/></svg>
+                  <div class="m-detail-merchant">Starbucks</div>
+                  <div class="m-detail-cat">Dining</div>
+                </div>
+                <div class="m-detail-total">$5.75</div>
+                <div class="m-detail-date">March 15, 2026 &middot; 2:34 PM</div>
+                <div class="m-detail-receipt">
+                  <div class="m-detail-line"><span>Brewed Coffee</span><span>$4.25</span></div>
+                  <div class="m-detail-line"><span>Tax</span><span>$0.50</span></div>
+                  <div class="m-detail-line"><span>Tip</span><span>$1.00</span></div>
+                  <div class="m-detail-line total"><span>Total</span><span>$5.75</span></div>
+                </div>
+                <div class="m-detail-tags">
+                  <span class="m-detail-tag">#morning</span>
+                  <span class="m-detail-tag">#quickbite</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="phone-dots" id="phone-dots">
+          <button class="dot active" data-index="0" aria-label="Receipts"></button>
+          <button class="dot" data-index="1" aria-label="Analytics"></button>
+          <button class="dot" data-index="2" aria-label="AI Coach"></button>
+          <button class="dot" data-index="3" aria-label="Budgets"></button>
+          <button class="dot" data-index="4" aria-label="Tax Helper"></button>
+          <button class="dot" data-index="5" aria-label="Receipt Detail"></button>
+        </div>
+        <div class="phone-screen-label" id="phone-screen-label">Receipts</div>
+        <div class="device-toggle">
+          <button class="device-btn active" data-device="phone" aria-label="Phone view">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Phone
+          </button>
+          <button class="device-btn" data-device="tablet" aria-label="Tablet view">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Tablet
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg width="20" height="30" viewBox="0 0 20 30"><rect x="1" y="1" width="18" height="28" rx="9" stroke="#666" stroke-width="2" fill="none"/><circle cx="10" cy="10" r="2" fill="#666" class="scroll-dot"/></svg>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container trust-bar-inner">
+      <div class="trust-stat"><strong>50+</strong> Scans/mo free</div>
+      <div class="trust-stat"><strong>99%</strong> AI Accuracy</div>
+      <div class="trust-stat"><strong>32</strong> Currencies</div>
+      <div class="trust-stat"><strong>12+</strong> Categories</div>
+      <div class="trust-stat"><strong id="total-downloads">—</strong> Downloads</div>
+      <div class="trust-stat"><strong>4.9</strong> &#9733; Rating</div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge">Features</span>
+        <h2>Everything you need to <span class="gradient-text">master your money</span></h2>
+        <p>From AI-powered scanning to deep financial insights — SnapSpend puts you in complete control of your spending.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-scan"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 7V5a2 2 0 012-2h2"/><path d="M17 3h2a2 2 0 012 2v2"/><path d="M21 17v2a2 2 0 01-2 2h-2"/><path d="M7 21H5a2 2 0 01-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>AI Receipt Scanning</h3>
+          <p>Snap a photo and GPT-4o extracts merchant, total, date, and line items automatically — with 99% accuracy.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-cat"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+          <h3>Smart Categories</h3>
+          <p>Receipts sorted into 12+ categories automatically. Create custom categories with custom icons and colors.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-bud"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <h3>Smart Budgets</h3>
+          <p>Set monthly budgets and per-category targets. Track progress in real time with visual indicators.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-ana"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+          <h3>Deep Analytics</h3>
+          <p>Financial health scores, spending trends, merchant insights, category breakdowns, and price history.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-ai"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3a6 6 0 006 6 6 6 0 00-6 6 6 6 0 00-6-6 6 6 0 006-6z"/><path d="M20 12a4 4 0 01-4 4 4 4 0 014 4 4 4 0 014-4 4 4 0 01-4-4z"/><path d="M4 12a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4z"/></svg></div>
+          <h3>AI Coach</h3>
+          <p>Ask natural language questions about your spending. Get personalized financial advice from AI.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-exp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <h3>Export & Tax Reports</h3>
+          <p>Export receipts to CSV or PDF. Generate annual tax reports. Find deductible expenses automatically.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-cur"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12c0 2.21 1.79 4 4 4s4-1.79 4-4-1.79-4-4-4-4 1.79-4 4z"/></svg></div>
+          <h3>Multi-Currency</h3>
+          <p>Auto-converts between 32 currencies with live exchange rates. Perfect for travelers and global shoppers.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon fi-moon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+          <h3>Dark Mode</h3>
+          <p>System-aware dark theme that's easy on your eyes. Beautifully crafted for day and night use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge">Pricing</span>
+        <h2>Start free. Upgrade when you need <span class="gradient-text">more power</span>.</h2>
+        <p>No hidden fees. No surprises. Cancel anytime.</p>
+      </div>
+      <div class="pricing-grid" data-reveal>
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <p class="pricing-desc">Perfect for getting started</p>
+          <div class="price">$0<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>50 AI scans per month</li>
+            <li>Monthly budget tracking</li>
+            <li>Receipt categorization</li>
+            <li>Analytics dashboard</li>
+            <li>Dark mode</li>
+            <li>CSV export</li>
+            <li>AI Coach</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-block">Get Started Free</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-tag">Popular</div>
+          <h3>Pro</h3>
+          <p class="pricing-desc">For power users and professionals</p>
+          <div class="price">$4.99<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>Unlimited AI scans</li>
+            <li>Category budgets</li>
+            <li>Smart folders</li>
+            <li>Price history tracking</li>
+            <li>PDF reports</li>
+            <li>Bill reminders</li>
+            <li>Spending forecast</li>
+            <li>Receipt sharing</li>
+            <li>Custom categories</li>
+            <li>Receipt Wrapped</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-block">Upgrade to Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge">Reviews</span>
+        <h2>Loved by <span class="gradient-text">early users</span></h2>
+      </div>
+      <div class="reviews-grid" data-reveal>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Finally, an app that actually reads my receipts correctly. The AI is scarily accurate."</p>
+          <div class="review-author">
+            <div class="review-avatar">JD</div>
+            <div><strong>Jamie D.</strong><small>Early Adopter</small></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"The budget tracking changed how I spend money. Seeing where it all goes is eye-opening."</p>
+          <div class="review-author">
+            <div class="review-avatar">AK</div>
+            <div><strong>Alex K.</strong><small>Freelancer</small></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Tax season used to be a nightmare. Now I just open SnapSpend and all my deductions are there."</p>
+          <div class="review-author">
+            <div class="review-avatar">SM</div>
+            <div><strong>Sarah M.</strong><small>Small Business Owner</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Releases -->
+  <section class="section" id="releases">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge">Downloads</span>
+        <h2>All <span class="gradient-text">releases & versions</span></h2>
+        <p>Download the latest APK directly, or browse previous versions.</p>
+      </div>
+      <div class="releases-container" data-reveal>
+        <div class="releases-list" id="releases-list">
+          <div class="loading">Loading releases...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section" data-reveal>
+    <div class="container cta-inner">
+      <div class="cta-glow"></div>
+      <h2>Ready to <span class="gradient-text">take control</span> of your spending?</h2>
+      <p>Join thousands of users who save time and money with SnapSpend. Start free, upgrade when you need more.</p>
+      <div class="cta-actions">
+        <div class="hero-buttons" style="margin-top:0;">
+          <a href="https://apps.apple.com/app/snapspend/id0000000000" target="_blank" rel="noopener" class="store-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span><strong>App Store</strong><small>Coming Soon</small></span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.snapspend.app" target="_blank" rel="noopener" class="store-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+            <span><strong>Google Play</strong><small>Coming Soon</small></span>
+          </a>
+        </div>
+        <div class="cta-qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://snapspend.app&bgcolor=0a0a0a&color=f5f5f5" alt="QR Code" width="100" height="100" />
+          <span>Scan with your phone</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>SnapSpend</strong>
+        <p>AI-powered receipt scanning & expense tracking.</p>
+        <p class="footer-copy">&copy; 2026 SnapSpend. All rights reserved.</p>
+            <p class="footer-copy" style="opacity:0.5;margin-top:4px;font-size:11px;letter-spacing:1.5px">POWERED BY PERCEPTA</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#releases">Releases</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="eula.html">EULA</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/Sentinel-bit/snapspend" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:hello@snapspend.app">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
